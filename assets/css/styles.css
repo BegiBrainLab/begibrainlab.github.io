@@ -366,3 +366,6 @@ section {
 .person-card .tag {
   width: fit-content;
 }
+section[id] {
+  scroll-margin-top: 110px;
+}
