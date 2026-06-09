@@ -337,3 +337,28 @@ section {
     display: block;
   }
 }
+.person-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.person-photo {
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 4px solid var(--brand);
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(6, 70, 201, .12);
+  margin-bottom: 6px;
+}
+
+.person-card h3 {
+  margin-bottom: 0;
+}
+
+.person-card .tag {
+  width: fit-content;
+}
