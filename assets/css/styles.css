@@ -347,13 +347,13 @@ section {
 
 .research-card .research-card-image {
   display: block !important;
-  width: calc(100% + 40px) !important;
-  max-width: none !important;
-  height: 180px !important;
-  max-height: 180px !important;
-  object-fit: cover !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 150px !important;
+  max-height: 150px !important;
+  object-fit: contain !important;
   object-position: center !important;
-  margin: 16px -20px 18px !important;
+  margin: 16px 0 18px !important;
   padding: 0 !important;
   border-radius: 16px !important;
   background: #ffffff !important;
@@ -508,10 +508,11 @@ section {
     grid-template-columns: 1fr;
   }
 
-.research-card .research-card-image {
-  height: 165px !important;
-  max-height: 165px !important;
-  width: 100% !important;
-  margin: 16px 0 18px !important;
-  object-fit: cover !important;
+  .research-card .research-card-image {
+    height: 150px !important;
+    max-height: 150px !important;
+    width: 100% !important;
+    margin: 16px 0 18px !important;
+    object-fit: contain !important;
+  }
 }
