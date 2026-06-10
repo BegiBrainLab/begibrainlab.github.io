@@ -552,3 +552,12 @@ section {
 .institutional-note a:hover {
   text-decoration: underline;
 }
+
+.research-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 26px;
+}
+
+.research-grid .card {
+  min-height: 100%;
+}
