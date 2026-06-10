@@ -349,12 +349,12 @@ section {
   display: block !important;
   width: calc(100% + 40px) !important;
   max-width: none !important;
-  height: 175px !important;
-  max-height: 175px !important;
-  object-fit: contain !important;
+  height: 180px !important;
+  max-height: 180px !important;
+  object-fit: cover !important;
   object-position: center !important;
   margin: 16px -20px 18px !important;
-  padding: 2px !important;
+  padding: 0 !important;
   border-radius: 16px !important;
   background: #ffffff !important;
   border: 1px solid var(--line) !important;
