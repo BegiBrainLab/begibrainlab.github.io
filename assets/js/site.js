@@ -16,9 +16,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentSlide = 0;
 
+    const restartGifIfNeeded = (slide) => {
+      const img = slide.querySelector("img");
+
+      if (!img) {
+        return;
+      }
+
+      const src = img.getAttribute("src");
+
+      if (!src || !src.toLowerCase().includes(".gif")) {
+        return;
+      }
+
+      img.setAttribute("src", "");
+      setTimeout(() => {
+        img.setAttribute("src", src);
+      }, 30);
+    };
+
     slides.forEach((slide, index) => {
       slide.classList.toggle("active", index === 0);
     });
+
+    restartGifIfNeeded(slides[0]);
 
     setInterval(() => {
       slides[currentSlide].classList.remove("active");
@@ -26,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       currentSlide = (currentSlide + 1) % slides.length;
 
       slides[currentSlide].classList.add("active");
-    }, 4500);
+      restartGifIfNeeded(slides[currentSlide]);
+    }, 5000);
   });
 });
