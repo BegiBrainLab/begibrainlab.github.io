@@ -129,17 +129,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const showSlide = (index) => {
   const slide = selectedSlides[index];
-  const nextSrc = prefix + slide.src + "?v=" + Date.now();
+  const nextSrc = prefix + slide.src;
 
-  image.classList.add("is-fading");
+  const nextImage = new Image();
 
-  setTimeout(() => {
-    image.alt = slide.alt;
-    title.textContent = slide.title;
-    text.textContent = slide.text;
-    image.src = nextSrc;
-    image.classList.remove("is-fading");
-  }, 250);
+  nextImage.onload = () => {
+    image.classList.add("is-fading");
+
+    setTimeout(() => {
+      image.src = nextSrc;
+      image.alt = slide.alt;
+      title.textContent = slide.title;
+      text.textContent = slide.text;
+
+      image.classList.remove("is-fading");
+    }, 200);
+  };
+
+  nextImage.src = nextSrc;
 };
 
   setInterval(() => {
