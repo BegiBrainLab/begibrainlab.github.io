@@ -351,7 +351,6 @@ section {
   max-width: 100% !important;
   height: 150px !important;
   max-height: 150px !important;
-  object-fit: contain !important;
   object-position: center !important;
   margin: 16px 0 18px !important;
   padding: 0 !important;
@@ -359,6 +358,14 @@ section {
   background: #ffffff !important;
   border: 1px solid var(--line) !important;
   box-sizing: border-box !important;
+}
+
+.research-card .research-card-image-retina {
+  object-fit: cover !important;
+}
+
+.research-card .research-card-image-wide {
+  object-fit: contain !important;
 }
 
 /* People */
@@ -513,6 +520,5 @@ section {
     max-height: 150px !important;
     width: 100% !important;
     margin: 16px 0 18px !important;
-    object-fit: contain !important;
   }
 }
