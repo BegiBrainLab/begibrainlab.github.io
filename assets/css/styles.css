@@ -508,10 +508,10 @@ section {
     grid-template-columns: 1fr;
   }
 
-  .research-card .research-card-image {
-    height: 155px !important;
-    max-height: 155px !important;
-    width: 100% !important;
-    margin: 16px 0 18px !important;
-  }
+.research-card .research-card-image {
+  height: 165px !important;
+  max-height: 165px !important;
+  width: 100% !important;
+  margin: 16px 0 18px !important;
+  object-fit: cover !important;
 }
