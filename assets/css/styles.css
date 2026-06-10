@@ -580,6 +580,28 @@ section {
     position: relative;
   }
 
+ .menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #ffffff;
+  color: var(--brand);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1;
+  padding: 0;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    position: relative;
+  }
+
   .menu-toggle {
     display: flex;
     margin-left: auto;
@@ -589,8 +611,8 @@ section {
     display: none;
     position: absolute;
     top: calc(100% + 10px);
-    left: 0;
-    right: 0;
+    left: 16px;
+    right: 16px;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
@@ -599,7 +621,7 @@ section {
     border: 1px solid var(--line);
     border-radius: 18px;
     box-shadow: var(--shadow);
-    z-index: 100;
+    z-index: 999;
   }
 
   .menu.is-open {
