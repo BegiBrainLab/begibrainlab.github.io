@@ -124,74 +124,34 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const selectedSlides = slides[lang] || slides.en;
-selectedSlides.forEach((slide) => {
-  const preload = new Image();
-  preload.src = prefix + slide.src;
-});
+
+  selectedSlides.forEach((slide) => {
+    const preload = new Image();
+    preload.src = prefix + slide.src;
+  });
+
   let current = 0;
 
-let isTransitioning = false;
+  const showSlide = (index) => {
+    const slide = selectedSlides[index];
+    const nextSrc = prefix + slide.src;
 
-const preloadImage = (src) => {
-  return new Promise((resolve) => {
-    const nextImage = new Image();
+    carousel.classList.add("is-changing");
 
-    nextImage.onload = async () => {
-      try {
-        if (nextImage.decode) {
-          await nextImage.decode();
-        }
-      } catch (error) {
-        // Some browsers may reject decode() for GIFs. Continue anyway.
-      }
+    setTimeout(() => {
+      image.src = nextSrc;
+      image.alt = slide.alt;
+      title.textContent = slide.title;
+      text.textContent = slide.text;
 
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          resolve(nextImage);
-        });
-      });
-    };
-
-    nextImage.onerror = () => {
-      resolve(nextImage);
-    };
-
-    nextImage.src = src;
-  });
-};
-
-const showSlide = async (index) => {
-  if (isTransitioning) {
-    return;
-  }
-
-  isTransitioning = true;
-
-  const slide = selectedSlides[index];
-  const nextSrc = prefix + slide.src;
-
-  carousel.classList.add("is-loading");
-
-  await preloadImage(nextSrc);
-
-  image.src = nextSrc;
-  image.alt = slide.alt;
-  title.textContent = slide.title;
-  text.textContent = slide.text;
-
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      carousel.classList.remove("is-loading");
-      isTransitioning = false;
-    });
-  });
-};
-
-  nextImage.src = nextSrc;
-};
+      setTimeout(() => {
+        carousel.classList.remove("is-changing");
+      }, 120);
+    }, 200);
+  };
 
   setInterval(() => {
     current = (current + 1) % selectedSlides.length;
     showSlide(current);
-  }, 5000);
+  }, 6000);
 });
