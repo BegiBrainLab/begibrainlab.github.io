@@ -5,21 +5,27 @@ document.addEventListener("DOMContentLoaded", () => {
     yearElement.textContent = new Date().getFullYear();
   }
 
-  const heroSlides = document.querySelectorAll(".hero-slide");
+  const carousels = document.querySelectorAll(".hero-carousel");
 
-  if (heroSlides.length > 1) {
+  carousels.forEach((carousel) => {
+    const slides = carousel.querySelectorAll(".hero-slide");
+
+    if (slides.length <= 1) {
+      return;
+    }
+
     let currentSlide = 0;
 
-    heroSlides.forEach((slide, index) => {
+    slides.forEach((slide, index) => {
       slide.classList.toggle("active", index === 0);
     });
 
     setInterval(() => {
-      heroSlides[currentSlide].classList.remove("active");
+      slides[currentSlide].classList.remove("active");
 
-      currentSlide = (currentSlide + 1) % heroSlides.length;
+      currentSlide = (currentSlide + 1) % slides.length;
 
-      heroSlides[currentSlide].classList.add("active");
+      slides[currentSlide].classList.add("active");
     }, 4500);
-  }
+  });
 });
