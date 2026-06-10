@@ -127,24 +127,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let current = 0;
 
-  const showSlide = (index) => {
-    const slide = selectedSlides[index];
-    const nextSrc = prefix + slide.src;
+const showSlide = (index) => {
+  const slide = selectedSlides[index];
+  const nextSrc = prefix + slide.src + "?v=" + Date.now();
 
-    image.classList.add("is-fading");
+  image.classList.add("is-fading");
 
-    setTimeout(() => {
-      image.src = "";
-      image.alt = slide.alt;
-      title.textContent = slide.title;
-      text.textContent = slide.text;
-
-      setTimeout(() => {
-        image.src = nextSrc;
-        image.classList.remove("is-fading");
-      }, 40);
-    }, 250);
-  };
+  setTimeout(() => {
+    image.alt = slide.alt;
+    title.textContent = slide.title;
+    text.textContent = slide.text;
+    image.src = nextSrc;
+    image.classList.remove("is-fading");
+  }, 250);
+};
 
   setInterval(() => {
     current = (current + 1) % selectedSlides.length;
