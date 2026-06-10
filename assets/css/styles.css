@@ -207,10 +207,11 @@ section[id] {
 /* Hero visual carousel */
 
 .hero-carousel {
-  position: relative;
+  display: grid;
   width: 100%;
   height: 430px;
   min-height: 430px;
+  max-height: 430px;
   border-radius: 32px;
   overflow: hidden;
   background: #ffffff;
@@ -218,35 +219,39 @@ section[id] {
   border: 1px solid var(--line);
 }
 
-.hero-slide {
-  position: absolute;
-  inset: 0;
+.hero-carousel .hero-slide {
+  grid-area: 1 / 1;
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 430px;
+  min-height: 430px;
+  max-height: 430px;
   opacity: 0;
   transform: translateX(18px);
   transition:
     opacity .9s ease,
     transform .9s ease;
-  z-index: 0;
   pointer-events: none;
+  overflow: hidden;
 }
 
-.hero-slide.active {
+.hero-carousel .hero-slide.active {
   opacity: 1;
   transform: translateX(0);
-  z-index: 1;
   pointer-events: auto;
 }
 
-.hero-slide img {
+.hero-carousel .hero-slide img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 430px;
+  min-height: 430px;
+  max-height: 430px;
   object-fit: cover;
+  object-position: center;
 }
 
-.hero-slide-caption {
+.hero-carousel .hero-slide-caption {
   position: absolute;
   left: 24px;
   right: 24px;
@@ -260,7 +265,7 @@ section[id] {
   box-shadow: 0 14px 35px rgba(6, 70, 201, .16);
 }
 
-.hero-slide-caption strong {
+.hero-carousel .hero-slide-caption strong {
   display: block;
   color: var(--ink);
   font-size: 1.05rem;
@@ -268,7 +273,7 @@ section[id] {
   margin-bottom: 4px;
 }
 
-.hero-slide-caption span {
+.hero-carousel .hero-slide-caption span {
   display: block;
   color: var(--muted);
   font-size: .95rem;
@@ -437,19 +442,32 @@ section {
     padding-top: 50px;
   }
 
-  .hero-carousel {
+    .hero-carousel {
     height: 300px;
     min-height: 300px;
+    max-height: 300px;
   }
 
-  .hero-slide-caption {
+  .hero-carousel .hero-slide {
+    height: 300px;
+    min-height: 300px;
+    max-height: 300px;
+  }
+
+  .hero-carousel .hero-slide img {
+    height: 300px;
+    min-height: 300px;
+    max-height: 300px;
+  }
+
+  .hero-carousel .hero-slide-caption {
     left: 16px;
     right: 16px;
     bottom: 16px;
     padding: 14px 16px;
   }
 
-  .hero-slide-caption span {
+  .hero-carousel .hero-slide-caption span {
     font-size: .86rem;
   }
 
