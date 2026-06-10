@@ -124,7 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const selectedSlides = slides[lang] || slides.en;
-
+selectedSlides.forEach((slide) => {
+  const preload = new Image();
+  preload.src = prefix + slide.src;
+});
   let current = 0;
 
 const showSlide = (index) => {
