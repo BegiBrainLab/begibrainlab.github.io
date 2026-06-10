@@ -650,3 +650,13 @@ section {
     padding: 8px 10px;
   }
 }
+
+.hero-carousel.is-loading .hero-carousel-image,
+.hero-carousel.is-loading .hero-slide-caption {
+  opacity: 0;
+}
+
+.hero-carousel-image,
+.hero-slide-caption {
+  transition: opacity .25s ease;
+}
