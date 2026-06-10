@@ -373,9 +373,19 @@ section {
 .person-card {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  align-items: flex-start;
-  overflow: hidden;
+  gap: 12px;
+}
+
+.person-card h3 {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.person-card .tag {
+  white-space: normal;
+  line-height: 1.35;
+  max-width: 100%;
+  width: fit-content;
 }
 
 .person-photo {
