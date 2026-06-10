@@ -1,19 +1,25 @@
-const yearElement = document.getElementById("year");
+document.addEventListener("DOMContentLoaded", () => {
+  const yearElement = document.getElementById("year");
 
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
-}
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
 
-const heroSlides = document.querySelectorAll(".hero-slide");
+  const heroSlides = document.querySelectorAll(".hero-slide");
 
-if (heroSlides.length > 1) {
-  let currentSlide = 0;
+  if (heroSlides.length > 1) {
+    let currentSlide = 0;
 
-  setInterval(() => {
-    heroSlides[currentSlide].classList.remove("active");
+    heroSlides.forEach((slide, index) => {
+      slide.classList.toggle("active", index === 0);
+    });
 
-    currentSlide = (currentSlide + 1) % heroSlides.length;
+    setInterval(() => {
+      heroSlides[currentSlide].classList.remove("active");
 
-    heroSlides[currentSlide].classList.add("active");
-  }, 4500);
-}
+      currentSlide = (currentSlide + 1) % heroSlides.length;
+
+      heroSlides[currentSlide].classList.add("active");
+    }, 4500);
+  }
+});
