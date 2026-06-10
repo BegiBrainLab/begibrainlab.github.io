@@ -651,12 +651,18 @@ section {
   }
 }
 
-.hero-carousel.is-loading .hero-carousel-image,
-.hero-carousel.is-loading .hero-slide-caption {
-  opacity: 0;
-}
 
 .hero-carousel-image,
 .hero-slide-caption {
   transition: opacity .25s ease;
+}
+
+.hero-carousel-image,
+.hero-slide-caption {
+  transition: opacity .2s ease;
+}
+
+.hero-carousel.is-changing .hero-carousel-image,
+.hero-carousel.is-changing .hero-slide-caption {
+  opacity: 0;
 }
