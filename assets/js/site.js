@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         text: "Computerised visual function, psychophysics and eye-tracking tasks."
       },
       {
-        src: "alzain.gif",
+        src: "alzhain.gif",
         alt: "Alzhain mixed reality platform",
         title: "Mixed reality and digital health",
         text: "Functional assessment and stimulation through immersive environments."
