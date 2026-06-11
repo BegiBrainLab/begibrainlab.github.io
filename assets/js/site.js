@@ -1,15 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /*
+   * Soft scanner cursor
+   * Visible only on desktop devices with mouse/trackpad.
+   */
   const scanCursor = document.querySelector(".scan-cursor");
 
   if (scanCursor && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    let cursorX = 0;
-    let cursorY = 0;
-    let currentX = 0;
-    let currentY = 0;
+    document.body.classList.add("has-scan-cursor");
+
+    let cursorX = window.innerWidth / 2;
+    let cursorY = window.innerHeight / 2;
+    let currentX = cursorX;
+    let currentY = cursorY;
 
     const moveCursor = () => {
-      currentX += (cursorX - currentX) * 0.18;
-      currentY += (cursorY - currentY) * 0.18;
+      currentX += (cursorX - currentX) * 0.22;
+      currentY += (cursorY - currentY) * 0.22;
 
       scanCursor.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
 
@@ -26,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       scanCursor.classList.remove("is-visible");
     });
 
-    document.querySelectorAll("a, button, .card").forEach((element) => {
+    document.querySelectorAll("a, button, .card, .btn").forEach((element) => {
       element.addEventListener("mouseenter", () => {
         scanCursor.classList.add("is-active");
       });
@@ -38,12 +44,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     moveCursor();
   }
+
+  /*
+   * Footer year
+   */
   const yearElement = document.getElementById("year");
 
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
   }
 
+  /*
+   * Mobile navigation menu
+   */
   const menuToggle = document.querySelector(".menu-toggle");
   const menu = document.querySelector(".menu");
 
@@ -64,6 +77,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /*
+   * Hero carousel
+   */
   const carousel = document.querySelector(".hero-carousel");
 
   if (!carousel) {
@@ -185,8 +201,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       setTimeout(() => {
         carousel.classList.remove("is-changing");
-      }, 120);
-    }, 200);
+      }, 150);
+    }, 250);
   };
 
   setInterval(() => {
