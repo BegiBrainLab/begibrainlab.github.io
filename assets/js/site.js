@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-const scanCursor = document.querySelector(".scan-cursor");
+  const scanCursor = document.querySelector(".scan-cursor");
 
   if (scanCursor && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     let cursorX = 0;
