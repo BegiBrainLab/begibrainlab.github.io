@@ -1,4 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const scanCursor = document.querySelector(".scan-cursor");
+
+  if (scanCursor && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    let cursorX = 0;
+    let cursorY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    const moveCursor = () => {
+      currentX += (cursorX - currentX) * 0.18;
+      currentY += (cursorY - currentY) * 0.18;
+
+      scanCursor.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
+
+      requestAnimationFrame(moveCursor);
+    };
+
+    window.addEventListener("mousemove", (event) => {
+      cursorX = event.clientX;
+      cursorY = event.clientY;
+      scanCursor.classList.add("is-visible");
+    });
+
+    window.addEventListener("mouseleave", () => {
+      scanCursor.classList.remove("is-visible");
+    });
+
+    document.querySelectorAll("a, button, .card").forEach((element) => {
+      element.addEventListener("mouseenter", () => {
+        scanCursor.classList.add("is-active");
+      });
+
+      element.addEventListener("mouseleave", () => {
+        scanCursor.classList.remove("is-active");
+      });
+    });
+
+    moveCursor();
+  }
   const yearElement = document.getElementById("year");
 
   if (yearElement) {
