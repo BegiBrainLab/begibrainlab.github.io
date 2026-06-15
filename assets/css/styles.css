@@ -710,19 +710,30 @@ section {
   margin-bottom: 0;
 }
 
-.software-logo {
-  display: block;
-  width: 25%;
-  max-width: 180px;
-  height: auto;
-  max-height: 95px;
-  object-fit: contain;
-  object-position: center;
-  margin: 12px auto 16px;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-  border: 0;
+.software-card > a {
+  display: block !important;
+  width: fit-content !important;
+  max-width: fit-content !important;
+  margin: 10px auto 16px !important;
+}
+
+.software-card .software-logo {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 150px !important;
+  max-height: 80px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  margin: 10px auto 16px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+.software-card > a .software-logo {
+  margin: 0 !important;
 }
 
 .software-card .btn {
@@ -735,9 +746,12 @@ section {
     grid-template-columns: 1fr;
   }
 
-  .software-logo {
-    width: 40%;
-    max-width: 180px;
-    max-height: 95px;
+  .software-card > a {
+    margin: 10px auto 16px !important;
+  }
+
+  .software-card .software-logo {
+    max-width: 150px !important;
+    max-height: 80px !important;
   }
 }
