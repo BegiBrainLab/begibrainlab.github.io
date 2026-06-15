@@ -692,3 +692,47 @@ section {
   font-weight: 800 !important;
   line-height: 1 !important;
 }
+
+/* Software cards */
+
+.software-grid {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 26px;
+}
+
+.software-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.software-card h3 {
+  margin-bottom: 0;
+}
+
+.software-logo {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  object-position: center;
+  padding: 12px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+}
+
+.software-card .btn {
+  width: fit-content;
+  margin-top: auto;
+}
+
+@media (max-width: 850px) {
+  .software-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .software-logo {
+    height: 140px;
+  }
+}
