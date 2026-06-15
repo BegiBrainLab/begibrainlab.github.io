@@ -31,8 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /*
+ /*
    * Highlight active navigation section while scrolling
+   * Stable version: prevents flicker during smooth scroll after menu click.
    */
   const sectionLinks = Array.from(document.querySelectorAll(".menu a[href^='#']"));
 
@@ -78,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const offset = 170;
+    const offset = 180;
     let currentSectionId = "";
 
     sections.forEach(({ id, section }) => {
@@ -100,8 +101,15 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("load", updateActiveSection);
 
   sectionLinks.forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (event) => {
       const targetId = link.getAttribute("href");
+      const targetSection = document.querySelector(targetId);
+
+      if (!targetSection) {
+        return;
+      }
+
+      event.preventDefault();
 
       lockedActiveSection = targetId;
       setActiveSection(targetId);
@@ -110,10 +118,24 @@ document.addEventListener("DOMContentLoaded", () => {
         clearTimeout(lockTimer);
       }
 
+      const headerOffset = 115;
+      const targetPosition = targetSection.offsetTop - headerOffset;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth"
+      });
+
+      history.pushState(null, "", targetId);
+
       lockTimer = setTimeout(() => {
-        lockedActiveSection = null;
-        updateActiveSection();
-      }, 1800);
+        setActiveSection(targetId);
+
+        setTimeout(() => {
+          lockedActiveSection = null;
+          updateActiveSection();
+        }, 300);
+      }, 2200);
     });
   });
 
