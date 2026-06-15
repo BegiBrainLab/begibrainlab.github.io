@@ -714,3 +714,54 @@ section {
     margin: 16px 0 18px !important;
   }
 }
+
+/* ORCID dot icon - final override */
+
+.orcid-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  width: fit-content !important;
+  max-width: fit-content !important;
+  margin: -2px 0 6px !important;
+  padding: 0 !important;
+  font-size: .82rem !important;
+  font-weight: 800 !important;
+  color: #4c7f16 !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+}
+
+.orcid-link:hover {
+  text-decoration: underline !important;
+}
+
+.orcid-dot {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  max-width: 22px !important;
+  min-height: 22px !important;
+  max-height: 22px !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #a6ce39 !important;
+  color: #ffffff !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  flex: 0 0 22px !important;
+  overflow: hidden !important;
+  text-align: center !important;
+}
+
+.orcid-dot::before {
+  content: "iD" !important;
+  display: block !important;
+  color: #ffffff !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+}
