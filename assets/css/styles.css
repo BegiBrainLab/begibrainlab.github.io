@@ -727,3 +727,26 @@ section {
     display: none;
   }
 }
+
+.orcid-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  margin-top: -2px;
+  margin-bottom: 2px;
+  font-size: .86rem;
+  font-weight: 800;
+  color: #4c7f16;
+  text-decoration: none;
+}
+
+.orcid-link:hover {
+  text-decoration: underline;
+}
+
+.orcid-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+}
