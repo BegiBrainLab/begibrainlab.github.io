@@ -1,53 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /*
-   * Soft scanner cursor
-   * Visible only on desktop devices with mouse/trackpad.
-   */
-  const scanCursor = document.querySelector(".scan-cursor");
-
-  if (scanCursor && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    document.body.classList.add("has-scan-cursor");
-
-    let cursorX = window.innerWidth / 2;
-    let cursorY = window.innerHeight / 2;
-    let currentX = cursorX;
-    let currentY = cursorY;
-
-    const moveCursor = () => {
-      currentX += (cursorX - currentX) * 0.22;
-      currentY += (cursorY - currentY) * 0.22;
-
-      scanCursor.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
-
-      requestAnimationFrame(moveCursor);
-    };
-
-    window.addEventListener("mousemove", (event) => {
-      cursorX = event.clientX;
-      cursorY = event.clientY;
-      scanCursor.classList.add("is-visible");
-    });
-
-    window.addEventListener("mouseleave", () => {
-      scanCursor.classList.remove("is-visible");
-    });
-
-    document.querySelectorAll("a, button, .card, .btn").forEach((element) => {
-      element.addEventListener("mouseenter", () => {
-        scanCursor.classList.add("is-active");
-      });
-
-      element.addEventListener("mouseleave", () => {
-        scanCursor.classList.remove("is-active");
-      });
-    });
-
-    moveCursor();
-  }
-
-  /*
-   * Footer year
-   */
+ 
   const yearElement = document.getElementById("year");
 
   if (yearElement) {
