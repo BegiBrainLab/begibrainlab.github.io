@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
- 
+  /*
+   * Footer year
+   */
   const yearElement = document.getElementById("year");
 
   if (yearElement) {
@@ -30,9 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /*
-   * Hero carousel
-   */
- /*
    * Highlight active navigation section while scrolling
    */
   const sectionLinks = Array.from(document.querySelectorAll(".menu a[href^='#']"));
@@ -47,11 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       return {
+        id,
         link,
         section
       };
     })
     .filter(Boolean);
+
+  let lockedActiveSection = null;
+  let lockTimer = null;
 
   const clearActiveSections = () => {
     sectionLinks.forEach((link) => {
@@ -70,14 +73,19 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const updateActiveSection = () => {
-    const offset = 160;
+    if (lockedActiveSection) {
+      setActiveSection(lockedActiveSection);
+      return;
+    }
+
+    const offset = 170;
     let currentSectionId = "";
 
-    sections.forEach(({ section }) => {
+    sections.forEach(({ id, section }) => {
       const sectionTop = section.offsetTop - offset;
 
       if (window.scrollY >= sectionTop) {
-        currentSectionId = `#${section.id}`;
+        currentSectionId = id;
       }
     });
 
@@ -93,12 +101,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sectionLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      setActiveSection(link.getAttribute("href"));
+      const targetId = link.getAttribute("href");
+
+      lockedActiveSection = targetId;
+      setActiveSection(targetId);
+
+      if (lockTimer) {
+        clearTimeout(lockTimer);
+      }
+
+      lockTimer = setTimeout(() => {
+        lockedActiveSection = null;
+        updateActiveSection();
+      }, 1800);
     });
   });
 
   updateActiveSection();
 
+  /*
+   * Hero carousel
+   */
   const carousel = document.querySelector(".hero-carousel");
 
   if (!carousel) {
