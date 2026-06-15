@@ -684,7 +684,7 @@ section {
 /* Extra separation between hero and People */
 
 #people {
-  padding-top: 115px;
+  padding-top: 150px;
 }
 
 @media (max-width: 850px) {
