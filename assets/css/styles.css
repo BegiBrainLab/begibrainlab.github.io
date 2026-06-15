@@ -712,14 +712,17 @@ section {
 
 .software-logo {
   display: block;
-  width: 100%;
-  height: 150px;
+  width: 25%;
+  max-width: 180px;
+  height: auto;
+  max-height: 95px;
   object-fit: contain;
   object-position: center;
-  padding: 12px;
-  border-radius: 16px;
-  background: #ffffff;
-  border: 1px solid var(--line);
+  margin: 12px auto 16px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
 }
 
 .software-card .btn {
@@ -733,6 +736,8 @@ section {
   }
 
   .software-logo {
-    height: 140px;
+    width: 40%;
+    max-width: 180px;
+    max-height: 95px;
   }
 }
