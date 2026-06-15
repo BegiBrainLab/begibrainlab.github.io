@@ -712,6 +712,80 @@ section {
     margin-top: 34px;
   }
 }
+/* Mobile hero research icons */
 
+@media (max-width: 850px) {
+  .hero {
+    padding: 36px 0 78px;
+  }
 
+  .hero-grid {
+    display: block;
+  }
+
+  .hero-research-map {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 100%;
+    margin: 22px auto 0;
+  }
+
+  .hero-research-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    text-align: center;
+  }
+
+  .hero-research-item img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+  }
+
+  .hero-research-item h3 {
+    display: none;
+  }
+
+  .hero-research-item::after {
+    content: attr(data-mobile-label);
+    display: block;
+    color: var(--brand);
+    font-size: .92rem;
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-actions-mobile {
+    display: none !important;
+  }
+
+  .hero-actions-desktop {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 26px;
+  }
+
+  #people {
+    padding-top: 78px;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-research-map {
+    gap: 8px;
+  }
+
+  .hero-research-item img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .hero-research-item::after {
+    font-size: .84rem;
+  }
+}
 
