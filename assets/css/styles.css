@@ -692,6 +692,26 @@ section {
     padding-top: 90px;
   }
 }
+/* Hero actions: desktop/mobile ordering */
+
+.hero-actions-mobile {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .hero-actions-desktop {
+    display: none;
+  }
+
+  .hero-actions-mobile {
+    display: flex;
+    margin-top: 28px;
+  }
+
+  .hero-research-map {
+    margin-top: 34px;
+  }
+}
 
 
 
