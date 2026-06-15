@@ -681,28 +681,6 @@ section {
   }
 }
 
-/* Extra separation between hero and People */
-
-#people {
-  padding-top: 180px;
-}
-
-@media (max-width: 850px) {
-  #people {
-    padding-top: 90px;
-  }
-}
-/* Hero actions: desktop/mobile ordering */
-
-.hero-actions-mobile {
-  display: none;
-}
-
-@media (max-width: 850px) {
-  .hero-actions-desktop {
-    display: none;
-  }
-
   .hero-actions-mobile {
     display: flex;
     margin-top: 28px;
@@ -788,4 +766,104 @@ section {
     font-size: .84rem;
   }
 }
+/* Hero mobile layout */
+
+.hero-actions-mobile {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .hero {
+    padding: 24px 0 76px;
+  }
+
+  .hero-grid {
+    display: block;
+  }
+
+  .eyebrow {
+    margin-top: 0;
+  }
+
+  .hero-actions-desktop {
+    display: none !important;
+  }
+
+  .hero-research-map {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 100%;
+    margin: 28px auto 0;
+  }
+
+  .hero-research-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    text-align: center;
+  }
+
+  .hero-research-item img {
+    width: 74px;
+    height: 74px;
+    object-fit: contain;
+  }
+
+  .hero-research-item h3 {
+    display: none;
+  }
+
+  .hero-research-item::after {
+    content: attr(data-mobile-label);
+    display: block;
+    color: var(--brand);
+    font-size: .92rem;
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-actions-mobile {
+    display: flex !important;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  #people {
+    padding-top: 76px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    padding-top: 18px;
+  }
+
+  .hero-research-map {
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  .hero-research-item img {
+    width: 66px;
+    height: 66px;
+  }
+
+  .hero-research-item::after {
+    font-size: .82rem;
+  }
+
+  .hero-actions-mobile {
+    gap: 10px;
+  }
+
+  .hero-actions-mobile .btn {
+    padding: 12px 15px;
+    font-size: .92rem;
+  }
+}
+
 
