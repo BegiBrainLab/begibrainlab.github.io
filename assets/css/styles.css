@@ -778,4 +778,50 @@ section {
   }
 }
 
+/* Brand active state - clean final version */
+
+.brand {
+  background: transparent !important;
+  color: var(--brand) !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.brand:hover,
+.brand:focus,
+.brand:active {
+  background: transparent !important;
+  color: var(--brand) !important;
+}
+
+.brand-name {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 7px 12px;
+  background: transparent;
+  color: var(--brand);
+  transition: background .18s ease, color .18s ease;
+}
+
+.brand:hover .brand-name,
+.brand:focus .brand-name,
+.brand:active .brand-name {
+  background: transparent !important;
+  color: var(--brand) !important;
+}
+
+.brand.is-active-section .brand-name {
+  background: var(--brand) !important;
+  color: #ffffff !important;
+}
+
+.brand.is-active-section:hover .brand-name,
+.brand.is-active-section:focus .brand-name,
+.brand.is-active-section:active .brand-name {
+  background: var(--brand) !important;
+  color: #ffffff !important;
+}
+
+
 Enviado desde Outlook para Android
