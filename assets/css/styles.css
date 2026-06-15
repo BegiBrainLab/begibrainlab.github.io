@@ -750,3 +750,49 @@ section {
   height: 9px;
   display: inline-block;
 }
+
+  .person-card a.orcid-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  width: fit-content !important;
+  margin: -2px 0 6px !important;
+  padding: 0 !important;
+  font-size: .82rem !important;
+  font-weight: 800 !important;
+  color: #4c7f16 !important;
+  text-decoration: none !important;
+}
+
+.person-card a.orcid-link:hover {
+  text-decoration: underline !important;
+}
+
+.person-card a.orcid-link .orcid-icon-wrap {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  max-width: 22px !important;
+  min-height: 22px !important;
+  max-height: 22px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  flex: 0 0 22px !important;
+}
+
+.person-card a.orcid-link .orcid-icon-wrap img.orcid-icon {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  max-width: 22px !important;
+  min-height: 22px !important;
+  max-height: 22px !important;
+  display: block !important;
+  object-fit: contain !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
