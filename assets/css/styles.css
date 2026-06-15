@@ -755,3 +755,26 @@ section {
     max-height: 80px !important;
   }
 }
+
+/* Active navigation section */
+
+.menu a.is-active-section {
+  background: var(--brand);
+  color: #ffffff !important;
+  border-radius: 999px;
+  padding: 7px 12px;
+}
+
+.menu a.is-active-section:hover {
+  background: var(--brand-dark);
+  color: #ffffff !important;
+}
+
+@media (max-width: 900px) {
+  .menu a.is-active-section {
+    background: var(--brand);
+    color: #ffffff !important;
+    border-radius: 12px;
+  }
+}
+
